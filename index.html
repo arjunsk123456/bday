@@ -432,7 +432,8 @@ html[data-mode="dark"] .lkcd{background:rgba(15,26,68,.4)}
 .cloche svg{display:block;width:100%;height:auto}
 .fcwrap.open .cloche{transform:translate(-50%,-130px) rotate(-14deg);opacity:0}
 .fcwrap.open .fcdosa{opacity:1;transform:translateX(-50%) scale(1)}
-.fcwrap:not(.open) .fcplate{animation:bqidle 2.4s ease-in-out infinite}
+.fcwrap:not(.open) .fcplate{animation:fcplateIdle 2.4s ease-in-out infinite}
+@keyframes fcplateIdle{50%{transform:translateX(-50%) translateY(-7px) rotate(-1.5deg)}}
 .fc-click{position:absolute;left:50%;bottom:-16px;z-index:7;transform:translateX(-50%);background:#fff;color:#e65100;border:3px solid #e65100;border-radius:999px;padding:7px 16px;font-family:'Baloo Chettan 2','Baloo 2',system-ui,sans-serif;font-weight:800;white-space:nowrap;box-shadow:0 4px 0 #ffcc80;animation:bounce 1.4s infinite;pointer-events:none}
 .fcwrap.open .fc-click{opacity:0;transform:translateX(-50%) scale(.9);transition:.25s}
 .steam{position:absolute;left:50%;top:40px;width:70%;transform:translateX(-50%);display:flex;justify-content:space-around;opacity:0;pointer-events:none}
@@ -489,6 +490,70 @@ html[data-mode="dark"] .kslot::after{background:rgba(255,255,255,.15)}
 .video-wish-status{min-height:1.5em;margin-top:12px;color:var(--deep);font-weight:700}
 html[data-mode="dark"] .video-wish-player{background:#26335f;box-shadow:0 8px 0 #101a44}
 html[data-mode="dark"] .video-wish-status{color:#bfe3ff}
+/* MOBILE LAYOUT */
+@media(max-width:640px){
+  body{background-attachment:scroll}
+  #intro,#lockscr{overflow-y:auto;overscroll-behavior:contain;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px))}
+  .lkbox{margin:auto;padding:18px 14px;gap:10px;backdrop-filter:blur(8px)}
+  .lkcd{width:min(100%,360px);gap:clamp(4px,2vw,9px);padding:7px 6px 9px}
+  .lkc{flex:1;min-width:0;padding:8px 2px}
+  .lkc b{font-size:clamp(1.45rem,7vw,2rem)}
+  .lk-secret{width:min(100%,320px)}
+  .hero{min-height:100vh;min-height:100svh;padding:66px 16px 34px}
+  .tag{font-size:clamp(1.25rem,5.5vw,1.55rem);line-height:1.2}
+  .hp{width:min(250px,68vw);margin:clamp(96px,28vw,122px) auto 0}
+  .hp .dora{width:min(150px,40vw);top:-112px}
+  .circle{border-width:6px;box-shadow:0 0 0 4px var(--blue),0 0 0 10px #fff,0 18px 34px rgba(21,101,192,.3)}
+  h1{font-size:clamp(2.15rem,10vw,3rem);margin:12px 0 6px}
+  .sub{max-width:34ch;line-height:1.45}
+  .btn{min-height:48px;padding:11px 22px}
+  .blk{padding:54px 16px}
+  .lead{margin-bottom:24px}
+  .row,.line{grid-template-columns:minmax(0,1fr);gap:26px}
+  .line{padding-inline:10px}
+  .holder{width:min(250px,78vw)}
+  .doorwrap{width:min(100%,380px);height:300px}
+  .time-screen{top:-54px;width:min(230px,68vw);height:min(230px,68vw)}
+  .time-screen.past-screen{width:min(190px,62vw);height:auto}
+  .time-machine{border-width:7px}
+  .time-machine .knob{width:30px;height:30px}
+  .time-click{padding:7px 12px;font-size:.92rem}
+  .adventures{grid-template-columns:minmax(0,1fr);gap:12px}
+  .adventure{min-height:0;padding:16px 14px}
+  .meter-device{width:100%;border-radius:26px}
+  .meter-stats{padding:11px 10px}
+  .surprise p,.fcmsg p{padding:18px 16px;font-size:1rem}
+  .envwrap{width:min(340px,88vw)}
+  .env.open .paper{top:-190px;height:min(390px,52vh);font-size:1.05rem}
+  .env.open{margin-bottom:200px}
+  .car{justify-content:flex-start;gap:14px;padding:12px max(16px,calc((100vw - 260px)/2)) 22px;scroll-padding-inline:16px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+  .slide{flex-basis:min(260px,78vw)}
+  .navb{top:44%;width:44px;height:44px}
+  #prev{left:0}
+  #next{right:0}
+  .cake-builder{padding:16px 12px}
+  .builder-choice{min-height:44px;padding:8px 12px;font-size:.95rem}
+  footer{padding:42px 16px calc(90px + env(safe-area-inset-bottom,0px))}
+}
+@media(max-width:360px){
+  .lkbox{padding-inline:10px}
+  .lkcd{gap:4px;padding-inline:4px}
+  .lkc{padding:7px 1px;border-radius:12px}
+  .lkc b{font-size:1.4rem}
+  .lkc small{font-size:.62rem;letter-spacing:.04em}
+  .meter-screen{align-items:flex-start}
+  .meter-mascot{flex-basis:72px;width:72px;height:78px}
+  .meter-stat{grid-template-columns:minmax(82px,1fr) 1.2fr 32px;gap:5px;font-size:.76rem}
+  .meter-stats{padding:10px 8px}
+  .meter-stat-track{height:8px}
+}
+@media(hover:none){
+  .holder:hover,.pol:hover{scale:1}
+  .adventure:hover,.builder-choice:hover,.meter-scan:hover,.video-wish-btn:hover{transform:none}
+}
+@keyframes centeredBounce{50%{transform:translate(-50%,8px)}}
+.time-click,.bq-click,.fc-click{animation:centeredBounce 1.4s infinite}
+.doorwrap.open .time-click,.bqwrap.open .bq-click,.fcwrap.open .fc-click{animation:none}
 </style>
 </head>
 <body>
