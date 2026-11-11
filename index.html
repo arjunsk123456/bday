@@ -103,23 +103,15 @@ img.ph{cursor:zoom-in}
 .surprise.on{max-height:300px;opacity:1;margin-top:26px}
 .surprise p{background:#fff;border-radius:26px;padding:22px;max-width:520px;margin:auto;box-shadow:0 8px 0 #b6dcf5;font-family:'Baloo Chettan 2','Baloo 2',system-ui,sans-serif;font-size:1.1rem;line-height:1.45}
 
-/* CHOOSE AN ADVENTURE */
-.adventures{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;max-width:760px;margin:0 auto}
-.adventure{min-height:170px;padding:20px 16px;border:3px solid #fff;border-radius:24px;background:linear-gradient(145deg,#fff,#edf8ff);color:var(--ink);font:inherit;box-shadow:0 7px 0 #b6dcf5,0 12px 24px rgba(21,101,192,.12);cursor:pointer;transition:transform .2s,box-shadow .2s}
-.adventure:hover,.adventure:focus-visible{transform:translateY(-6px) rotate(-1deg);box-shadow:0 12px 0 #b6dcf5,0 18px 26px rgba(21,101,192,.18);outline:3px solid var(--sun);outline-offset:3px}
-.adventure:nth-child(2):hover{transform:translateY(-6px) rotate(1deg)}
-.adventure.selected{border-color:var(--red);background:linear-gradient(145deg,#fff,#fff0f3)}
-.adventure-icon{display:block;font-size:2.7rem;margin-bottom:8px}
-.adventure b{display:block;color:var(--deep);font-size:1.15rem}
-.adventure small{display:block;margin-top:4px;line-height:1.35;opacity:.78}
-.adventure-result{display:none;max-width:600px;margin:28px auto 0;padding:22px;border:3px dashed #ff9db2;border-radius:26px;background:#fff;box-shadow:0 8px 0 #f7c2d0;font-family:'Baloo Chettan 2','Baloo 2',system-ui,sans-serif;font-size:1.1rem;line-height:1.45;animation:adventurePop .5s cubic-bezier(.3,1.5,.5,1) both}
-.adventure-result.on{display:block}
-.adventure-result .result-icon{display:block;font-size:2.8rem;margin-bottom:6px}
+.wish-gadget{display:flex;align-items:center;justify-content:center;gap:14px;max-width:100%;min-width:min(100%,340px);min-height:110px;padding:16px 24px;border:4px solid #fff;border-radius:28px;background:linear-gradient(145deg,#62c7ff,#218de2);color:#fff;text-align:left;box-shadow:0 8px 0 #12569b,0 14px 28px rgba(21,101,192,.22);cursor:pointer;transition:transform .2s,box-shadow .2s}
+.wish-gadget:hover,.wish-gadget:focus-visible{transform:translateY(-5px);box-shadow:0 12px 0 #12569b,0 18px 32px rgba(21,101,192,.28);outline:3px solid var(--sun);outline-offset:4px}
+.wish-gadget-icon{flex:0 0 auto;font-size:3rem}
+.wish-gadget-copy b,.wish-gadget-copy small{display:block}
+.wish-gadget-copy b{font-size:1.2rem}
+.wish-gadget-copy small{margin-top:3px;line-height:1.35}
+@keyframes gadgetRing{25%{transform:rotate(18deg)}50%{transform:rotate(-16deg)}75%{transform:rotate(10deg)}}
+.wish-gadget:hover .wish-gadget-icon{animation:gadgetRing .45s ease-in-out}
 @keyframes adventurePop{from{opacity:0;transform:scale(.8) translateY(14px)}to{opacity:1;transform:none}}
-html[data-mode="dark"] .adventure{background:linear-gradient(145deg,#26335f,#1d2b55);color:#eaf3ff;box-shadow:0 7px 0 #101a44}
-html[data-mode="dark"] .adventure b{color:#8ed2ff}
-html[data-mode="dark"] .adventure-result{background:#26335f;color:#eaf3ff;box-shadow:0 8px 0 #101a44}
-
 /* DORAEMON'S CUTE-O-METER */
 .meter-device{max-width:560px;margin:0 auto;padding:10px 12px 18px;border:7px solid #176fc0;border-radius:34px;background:linear-gradient(145deg,#62c7ff,#218de2);box-shadow:0 10px 0 #12569b,0 18px 34px rgba(21,101,192,.22)}
 .meter-top{display:flex;align-items:center;justify-content:space-between;padding:1px 5px 9px;color:#fff;font-weight:800;letter-spacing:.04em}
@@ -483,8 +475,7 @@ html[data-mode="dark"] .kslot::after{background:rgba(255,255,255,.15)}
 .fcwrap.imgmode .fcplate{transition:opacity .6s .4s}
 .fcwrap.imgmode.open .fcplate{opacity:0}
 .video-wish{max-width:620px;margin:0 auto}
-.video-wish-btn{border:3px solid #fff;border-radius:999px;padding:12px 24px;background:linear-gradient(135deg,#ff6d91,#ed3f69);color:#fff;font:800 1.05rem 'Baloo 2',sans-serif;box-shadow:0 6px 0 #bd3154,0 12px 24px rgba(189,49,84,.2);cursor:pointer;transition:transform .18s}
-.video-wish-btn:hover{transform:translateY(-3px)}
+.video-wish-btn{font:inherit}
 .video-wish-player{display:none;margin:24px auto 0;padding:10px;border:5px solid #fff;border-radius:24px;background:linear-gradient(145deg,#b7e6ff,#f8d7e8);box-shadow:0 8px 0 #b6dcf5}
 .video-wish-player.on{display:block;animation:adventurePop .45s cubic-bezier(.3,1.5,.5,1) both}
 .video-wish-player video{display:block;width:100%;height:auto;max-height:min(65vh,560px);object-fit:contain;border-radius:14px;background:#17233c}
@@ -519,8 +510,7 @@ html[data-mode="dark"] .video-wish-status{color:#bfe3ff}
   .time-machine{border-width:7px}
   .time-machine .knob{width:30px;height:30px}
   .time-click{padding:7px 12px;font-size:.92rem}
-  .adventures{grid-template-columns:minmax(0,1fr);gap:12px}
-  .adventure{min-height:0;padding:16px 14px}
+  .wish-gadget{width:100%;min-width:0;padding:14px 16px}
   .meter-device{width:100%;border-radius:26px}
   .meter-stats{padding:11px 10px}
   .surprise p,.fcmsg p{padding:18px 16px;font-size:1rem}
@@ -550,7 +540,7 @@ html[data-mode="dark"] .video-wish-status{color:#bfe3ff}
 }
 @media(hover:none){
   .holder:hover,.pol:hover{scale:1}
-  .adventure:hover,.builder-choice:hover,.meter-scan:hover,.video-wish-btn:hover{transform:none}
+  .wish-gadget:hover,.builder-choice:hover,.meter-scan:hover{transform:none}
 }
 @keyframes centeredBounce{50%{transform:translate(-50%,8px)}}
 .time-click,.bq-click,.fc-click{animation:centeredBounce 1.4s infinite}
@@ -696,29 +686,24 @@ const CONFIG = {
   <div class="surprise" id="pastSur"><p id="pastText"></p></div>
 </section>
 
-<section class="blk reveal" id="adventureSec">
-  <h2 class="t">Choose your birthday adventure 🚪</h2>
-  <p class="lead">Pick a Doraemon gadget and see where it takes you!</p>
-  <div class="adventures">
-    <button class="adventure" type="button" data-adventure="door">
-      <span class="adventure-icon" aria-hidden="true">🚪</span>
-      <b>Anywhere Door</b>
-      <small>Pop over to your dream day</small>
+<section class="blk reveal" id="videoWishSec">
+  <h2 class="t">Doraemon's surprise gadget 🔔</h2>
+  <p class="lead">One special gadget is waiting to reveal your birthday video message!</p>
+  <div class="video-wish">
+    <button class="video-wish-btn wish-gadget" id="playDoraWish" type="button" aria-controls="doraWishVideo" aria-expanded="false">
+      <span class="wish-gadget-icon" aria-hidden="true">🔔</span>
+      <span class="wish-gadget-copy">
+        <b id="playDoraWishLabel">Surprise Bell</b>
+        <small>Tap to reveal Doraemon's video message</small>
+      </span>
     </button>
-    <button class="adventure" type="button" data-adventure="time">
-      <span class="adventure-icon" aria-hidden="true">⏰</span>
-      <b>Time Machine</b>
-      <small>Peek at a future full of wishes</small>
-    </button>
-    <button class="adventure" type="button" data-adventure="pocket">
-      <span class="adventure-icon" aria-hidden="true">🔔</span>
-      <b>Secret Pocket</b>
-      <small>Pull out a surprise just for you</small>
-    </button>
-  </div>
-  <div class="adventure-result" id="adventureResult" role="status" aria-live="polite">
-    <span class="result-icon" id="adventureIcon"></span>
-    <span id="adventureText"></span>
+    <div class="video-wish-player" id="doraWishPlayer">
+      <video id="doraWishVideo" controls muted playsinline preload="none" aria-label="Doraemon's birthday wish">
+        <source src="videos/doremon.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+    </div>
+    <p class="video-wish-status" id="doraWishStatus" role="status" aria-live="polite"></p>
   </div>
 </section>
 
@@ -777,23 +762,6 @@ const CONFIG = {
     <div class="katoris" id="katoris"></div>
   </div>
   <div class="fcmsg" id="fcfinal"><p id="fcftxt"></p></div>
-</section>
-
-<section class="blk reveal" id="videoWishSec">
-  <h2 class="t">A special wish from Doraemon 💙</h2>
-  <p class="lead">Doraemon has a little birthday message just for you!</p>
-  <div class="video-wish">
-    <button class="video-wish-btn" id="playDoraWish" type="button" aria-controls="doraWishVideo">
-      💌 Get your wish from Doraemon!
-    </button>
-    <div class="video-wish-player" id="doraWishPlayer">
-      <video id="doraWishVideo" controls muted playsinline preload="none" aria-label="Doraemon's birthday wish">
-        <source src="videos/doremon.mp4" type="video/mp4">
-        Your browser does not support video playback.
-      </video>
-    </div>
-    <p class="video-wish-status" id="doraWishStatus" role="status" aria-live="polite"></p>
-  </div>
 </section>
 
 <section class="blk reveal">
@@ -1368,22 +1336,6 @@ pastMachine.onclick=travelFurtherBack;
 pastMachine.onkeydown=e=>{
   if(e.key==="Enter"||e.key===" "){e.preventDefault();travelFurtherBack()}
 };
-const adventurePaths={
-  door:{icon:"🏖️",text:`Whoosh! The Anywhere Door opens onto a sunny little beach day, with your favorite snacks, pretty sunsets, and absolutely no plans except having fun. Your only job, ${CONFIG.name}, is to enjoy every minute! 💙`},
-  time:{icon:"✨",text:`The Time Machine zooms into a future filled with happy surprises, big dreams coming true, and lots of reasons to smile. Future ${CONFIG.name} sends one message back: “Keep being wonderfully you!” 💫`},
-  pocket:{icon:"🎁",text:`Doraemon reaches into his secret pocket and pulls out an invisible gift: a whole year of hugs, belly laughs, good food, and people reminding you how special you are. Birthday magic delivered! 🔔`}
-};
-document.querySelectorAll(".adventure").forEach(button=>{
-  button.onclick=()=>{
-    const path=adventurePaths[button.dataset.adventure];
-    if(!path)return;
-    document.querySelectorAll(".adventure").forEach(option=>option.classList.toggle("selected",option===button));
-    $("adventureIcon").textContent=path.icon;
-    $("adventureText").textContent=path.text;
-    $("adventureResult").classList.add("on");
-    sfx("sparkle");confetti(35);vib([20,30,20]);
-  };
-});
 const doraWishVideo=$("doraWishVideo");
 doraWishVideo.muted=true;
 doraWishVideo.addEventListener("error",()=>{
@@ -1392,13 +1344,14 @@ doraWishVideo.addEventListener("error",()=>{
 doraWishVideo.addEventListener("play",()=>$("doraWishStatus").textContent="Playing Doraemon's birthday wish… 💙");
 doraWishVideo.addEventListener("ended",()=>{
   $("doraWishStatus").textContent="A birthday wish delivered with love! Tap the button to watch it again. 💙";
-  $("playDoraWish").textContent="🔁 Watch Doraemon's wish again";
+  $("playDoraWishLabel").textContent="Watch Doraemon's wish again";
 });
 $("playDoraWish").onclick=async()=>{
   const video=doraWishVideo;
   $("doraWishPlayer").classList.add("on");
+  $("playDoraWish").setAttribute("aria-expanded","true");
   $("doraWishStatus").textContent="Doraemon's birthday wish is ready! 💙";
-  $("playDoraWish").textContent="🔁 Play Doraemon's wish again";
+  $("playDoraWishLabel").textContent="Play Doraemon's wish again";
   try{
     if(video.ended)video.currentTime=0;
     await video.play();
