@@ -83,6 +83,7 @@ img.ph{cursor:zoom-in}
 .doorwrap:not(.open){animation:machineIdle 2.2s ease-in-out infinite}
 .time-click{position:absolute;left:50%;bottom:-2px;z-index:7;transform:translateX(-50%);background:#fff;color:var(--deep);border:3px solid var(--deep);border-radius:999px;padding:7px 16px;font-family:'Baloo Chettan 2','Baloo 2',system-ui,sans-serif;font-weight:800;white-space:nowrap;box-shadow:0 4px 0 #b6dcf5;animation:bounce 1.4s infinite;pointer-events:none}
 .doorwrap.open .time-click{opacity:0;transform:translateX(-50%) scale(.9);transition:.25s}
+.doorwrap.past-ready .time-click{opacity:1;transform:translateX(-50%);transition:opacity .25s}
 .doorwrap.open .time-machine{animation:machinePower 1.8s ease-in-out}
 .doorwrap.open .time-screen{animation:mirrorReveal 1.8s ease-out}
 .doorwrap.open .time-screen img{animation:futureReveal .55s 1.25s forwards}
@@ -1312,8 +1313,9 @@ $("bq").onclick=giveBouquet;
 $("bq").onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();giveBouquet()}};
 
 /* ---- time machine, cake, envelope ---- */
-function travelThroughTime(machine, surprise, direction){
-  if(machine.classList.contains("open"))return;
+function travelThroughTime(machine, surprise, direction, onComplete){
+  if(machine.classList.contains("open")||machine.dataset.traveling==="true")return;
+  machine.dataset.traveling="true";
   machine.classList.add("open");
   sfx("boing");
   const warp=document.createElement("div");
@@ -1322,10 +1324,12 @@ function travelThroughTime(machine, surprise, direction){
   document.body.appendChild(warp);
   setTimeout(()=>sfx("sparkle"),350);
   setTimeout(()=>{
+    if(onComplete)onComplete();
     surprise.classList.add("on");
     confetti(100);
     fireworks(6);
     warp.remove();
+    machine.dataset.traveling="false";
   },1700);
 }
 const bindTimeMachine=(machineId,surpriseId,direction)=>{
@@ -1337,7 +1341,33 @@ const bindTimeMachine=(machineId,surpriseId,direction)=>{
   };
 };
 bindTimeMachine("door","sur","future");
-bindTimeMachine("pastDoor","pastSur","past");
+const pastMachine=$("pastDoor");
+let pastJourney=0;
+const travelFurtherBack=()=>{
+  if(pastJourney>=2||pastMachine.dataset.traveling==="true")return;
+  const goingFurther=pastJourney===1;
+  if(goingFurther){
+    pastMachine.classList.remove("past-ready","open");
+    void pastMachine.offsetWidth;
+    $("pastFrame").querySelector("img").src="Photos/g.png";
+  }
+  pastJourney++;
+  travelThroughTime(pastMachine,$("pastSur"),"past",()=>{
+    if(pastJourney===1){
+      pastMachine.classList.add("past-ready");
+      pastMachine.querySelector(".time-click").textContent="⏪ Tap again to go way more back 👆";
+      pastMachine.setAttribute("aria-label","Tap again to travel further back in time");
+      return;
+    }
+    $("pastText").textContent="The time machine traveled even further back to another special memory! 💙";
+    pastMachine.setAttribute("aria-label","Time machine has reached an earlier memory");
+    pastMachine.setAttribute("aria-disabled","true");
+  });
+};
+pastMachine.onclick=travelFurtherBack;
+pastMachine.onkeydown=e=>{
+  if(e.key==="Enter"||e.key===" "){e.preventDefault();travelFurtherBack()}
+};
 const adventurePaths={
   door:{icon:"🏖️",text:`Whoosh! The Anywhere Door opens onto a sunny little beach day, with your favorite snacks, pretty sunsets, and absolutely no plans except having fun. Your only job, ${CONFIG.name}, is to enjoy every minute! 💙`},
   time:{icon:"✨",text:`The Time Machine zooms into a future filled with happy surprises, big dreams coming true, and lots of reasons to smile. Future ${CONFIG.name} sends one message back: “Keep being wonderfully you!” 💫`},
