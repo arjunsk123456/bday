@@ -112,40 +112,6 @@ img.ph{cursor:zoom-in}
 @keyframes gadgetRing{25%{transform:rotate(18deg)}50%{transform:rotate(-16deg)}75%{transform:rotate(10deg)}}
 .wish-gadget:hover .wish-gadget-icon{animation:gadgetRing .45s ease-in-out}
 @keyframes adventurePop{from{opacity:0;transform:scale(.8) translateY(14px)}to{opacity:1;transform:none}}
-/* DORAEMON'S CUTE-O-METER */
-.meter-device{max-width:560px;margin:0 auto;padding:10px 12px 18px;border:7px solid #176fc0;border-radius:34px;background:linear-gradient(145deg,#62c7ff,#218de2);box-shadow:0 10px 0 #12569b,0 18px 34px rgba(21,101,192,.22)}
-.meter-top{display:flex;align-items:center;justify-content:space-between;padding:1px 5px 9px;color:#fff;font-weight:800;letter-spacing:.04em}
-.meter-lights{display:flex;gap:6px}
-.meter-lights i{width:9px;height:9px;border-radius:50%;background:#ffe27a;box-shadow:0 0 8px rgba(255,255,255,.9)}
-.meter-screen{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;min-height:142px;padding:12px;border:5px solid #d5f3ff;border-radius:22px;background:linear-gradient(145deg,#f8fdff,#d9f3ff);overflow:hidden}
-.meter-mascot{flex:0 0 105px;width:105px;height:106px;display:grid;place-items:center}
-.meter-mascot .dora{width:100%;height:100%}
-.meter-copy{position:relative;z-index:1;flex:1;text-align:left}
-.meter-state{font-weight:800;color:var(--deep);font-size:1.05rem}
-.meter-message{margin-top:5px;line-height:1.35;color:var(--ink);font-weight:600}
-.meter-screen::after{content:"";position:absolute;left:0;right:0;top:-35%;height:14px;background:rgba(78,206,255,.72);box-shadow:0 0 18px 8px rgba(78,206,255,.42);opacity:0;pointer-events:none}
-.meter-device.scanning .meter-screen::after{opacity:1;animation:meterSweep 1.15s ease-in-out infinite}
-@keyframes meterSweep{from{top:-12%}to{top:112%}}
-.meter-progress{height:12px;margin:12px 4px 14px;border:2px solid rgba(255,255,255,.9);border-radius:20px;background:#d9f3ff;overflow:hidden}
-.meter-progress i{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#ff82ab,#ffd95e,#78e0a1);transition:width 1.45s ease}
-.meter-stats{display:grid;gap:9px;padding:13px 15px;border-radius:18px;background:rgba(255,255,255,.92)}
-.meter-stat{display:grid;grid-template-columns:minmax(125px,1fr) 2fr 42px;align-items:center;gap:9px;text-align:left;font-weight:800;color:var(--deep);font-size:.92rem}
-.meter-stat-track{height:10px;border-radius:12px;background:#e5edf7;overflow:hidden}
-.meter-stat-track i{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#ff89ac,#ff4b78);transition:width .8s cubic-bezier(.2,1.3,.4,1)}
-.meter-stat:nth-child(2) .meter-stat-track i{background:linear-gradient(90deg,#7ccfff,#268fe5)}
-.meter-stat:nth-child(3) .meter-stat-track i{background:linear-gradient(90deg,#ffe27a,#ffad55)}
-.meter-scan{margin-top:18px;border:3px solid #fff;border-radius:999px;padding:10px 24px;background:var(--red);color:#fff;font:800 1.05rem 'Baloo 2',sans-serif;box-shadow:0 5px 0 #c93a40;cursor:pointer;transition:transform .15s,opacity .15s}
-.meter-scan:hover:not(:disabled){transform:translateY(-2px)}
-.meter-scan:disabled{opacity:.7;cursor:wait}
-.meter-result{max-width:560px;min-height:0;margin:18px auto 0;padding:0 18px;border-radius:22px;background:#fff;color:var(--ink);font-family:'Baloo Chettan 2','Baloo 2',system-ui,sans-serif;font-size:1.1rem;line-height:1.45;box-shadow:0 7px 0 #f7c2d0}
-.meter-result:not(:empty){padding:18px;animation:adventurePop .4s cubic-bezier(.3,1.5,.5,1) both}
-html[data-mode="dark"] .meter-device{border-color:#101a44;background:linear-gradient(145deg,#3b80c5,#234d91);box-shadow:0 10px 0 #101a44,0 18px 34px rgba(0,0,0,.24)}
-html[data-mode="dark"] .meter-screen{border-color:#475e96;background:linear-gradient(145deg,#eef6ff,#cfdef9)}
-html[data-mode="dark"] .meter-stats{background:#202d56}
-html[data-mode="dark"] .meter-stat{color:#bfe3ff}
-html[data-mode="dark"] .meter-result{background:#26335f;color:#eaf3ff;box-shadow:0 7px 0 #101a44}
-@media(max-width:420px){.meter-device{padding:8px}.meter-screen{gap:4px;padding:8px;min-height:126px}.meter-mascot{flex-basis:84px;width:84px;height:88px}.meter-stat{grid-template-columns:minmax(105px,1fr) 1.2fr 36px;gap:6px;font-size:.82rem}}
-@media(prefers-reduced-motion:reduce){.meter-device.scanning .meter-screen::after{animation:none;top:50%}.meter-progress i,.meter-stat-track i{transition:none}}
 
 /* CAKE */
 .cakewrap{display:flex;align-items:flex-end;justify-content:center;margin-top:30px}
@@ -511,8 +477,6 @@ html[data-mode="dark"] .video-wish-status{color:#bfe3ff}
   .time-machine .knob{width:30px;height:30px}
   .time-click{padding:7px 12px;font-size:.92rem}
   .wish-gadget{width:100%;min-width:0;padding:14px 16px}
-  .meter-device{width:100%;border-radius:26px}
-  .meter-stats{padding:11px 10px}
   .surprise p,.fcmsg p{padding:18px 16px;font-size:1rem}
   .envwrap{width:min(340px,88vw)}
   .env.open .paper{top:-190px;height:min(390px,52vh);font-size:1.05rem}
@@ -532,15 +496,10 @@ html[data-mode="dark"] .video-wish-status{color:#bfe3ff}
   .lkc{padding:7px 1px;border-radius:12px}
   .lkc b{font-size:1.4rem}
   .lkc small{font-size:.62rem;letter-spacing:.04em}
-  .meter-screen{align-items:flex-start}
-  .meter-mascot{flex-basis:72px;width:72px;height:78px}
-  .meter-stat{grid-template-columns:minmax(82px,1fr) 1.2fr 32px;gap:5px;font-size:.76rem}
-  .meter-stats{padding:10px 8px}
-  .meter-stat-track{height:8px}
 }
 @media(hover:none){
   .holder:hover,.pol:hover{scale:1}
-  .wish-gadget:hover,.builder-choice:hover,.meter-scan:hover{transform:none}
+  .wish-gadget:hover,.builder-choice:hover{transform:none}
 }
 @keyframes centeredBounce{50%{transform:translate(-50%,8px)}}
 .time-click,.bq-click,.fc-click{animation:centeredBounce 1.4s infinite}
@@ -597,7 +556,7 @@ const CONFIG = {
     {id:"all",     icon:"🎉", label:"Everything!",      reply:""}
   ],
   foodFinal: "Perfect combo! Now the dosa is complete. Happy birthday, Sneha, and the treat is on me! 😋💙",
-  letter: "Happy 23rd birthday, Sneha!❤️✨ ഈ ബർത്ത്ഡേ നിന്റെ ലൈഫിലെ ബെസ്റ്റ് തന്നെ ആവട്ടെ, എന്നും നിനക്ക് ലൈഫിൽ ഇതുപോലെ ഹാപ്പിയായി ഇരിക്കാൻ പറ്റട്ടെ ❤️ You're genuinely a special person ❤️ You deserve all the happiness in the world."
+  letter: "Happy 23rd birthday, Sneha!❤️✨Keep smiling, stay happy, and may all your dreams come true! You deserve the best! Also Sorry for everything......."
 };
 </script>
 
@@ -705,29 +664,6 @@ const CONFIG = {
     </div>
     <p class="video-wish-status" id="doraWishStatus" role="status" aria-live="polite"></p>
   </div>
-</section>
-
-<section class="blk reveal" id="cuteMeterSec">
-  <h2 class="t">Doraemon's Cute-o-meter 💙</h2>
-  <p class="lead">A very scientific scan of birthday-girl cuteness. Ready, Sneha? 🤭</p>
-  <div class="meter-device" id="meterDevice">
-    <div class="meter-top"><span>GADGET No. 023</span><span class="meter-lights" aria-hidden="true"><i></i><i></i><i></i></span></div>
-    <div class="meter-screen">
-      <div class="meter-mascot" id="meterDora" aria-hidden="true"></div>
-      <div class="meter-copy">
-        <p class="meter-state" id="meterState">READY TO SCAN ✨</p>
-        <p class="meter-message" id="meterMessage">Hold still! Doraemon is calibrating the cuteness detector…</p>
-      </div>
-    </div>
-    <div class="meter-progress" role="progressbar" id="meterProgress" aria-label="Cute-o-meter scan progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
-    <div class="meter-stats" aria-label="Cute-o-meter readings">
-      <div class="meter-stat"><span>Cute</span><span class="meter-stat-track"><i id="adorableBar"></i></span><b id="adorableValue">—</b></div>
-      <div class="meter-stat"><span>Kindness</span><span class="meter-stat-track"><i id="cuteBar"></i></span><b id="cuteValue">—</b></div>
-      <div class="meter-stat"><span>Brain Usage</span><span class="meter-stat-track"><i id="goofyBar"></i></span><b id="goofyValue">—</b></div>
-    </div>
-    <button class="meter-scan" id="scanCute" type="button">🔍 Scan my cuteness!</button>
-  </div>
-  <div class="meter-result" id="meterResult" role="status" aria-live="polite"></div>
 </section>
 
 <section class="blk reveal" id="foodsec">
@@ -1121,7 +1057,7 @@ $("walk").innerHTML=[1,2,3].map(()=>dorayakiSVG(34)).join("");
 $("from").textContent=CONFIG.from;
 $("letter").textContent=CONFIG.letter;
 $("surtxt").textContent="🚀 Future "+CONFIG.name+" spotted: സൂക്ഷിച്ച് നോക്കണ്ട, അത് നീ തന്നെ. 😄✨";
-$("pastText").textContent="⏪ Back in time! Little "+CONFIG.name+" is here in a collage of sweet childhood memories. Some things never change—especially that lovely smile! 💙";
+$("pastText").textContent="⏪ Back in time! Little "+CONFIG.name+" is here in a collage of sweet childhood memories. ! 💙";
 document.title="Happy Birthday "+CONFIG.name+"! 🎂";
 $("heroDora").innerHTML=dora();
 $("heroPh").innerHTML=photo(0);
@@ -1361,51 +1297,6 @@ $("playDoraWish").onclick=async()=>{
       ?"The video couldn't be loaded. Check that videos/doremon.mp4 is included when you upload the page."
       :"Tap play on the video to watch Doraemon's wish.";
   }
-};
-$("meterDora").innerHTML=dora(false,BLUE,true);
-const scanResults=[
-  `${CONFIG.name} is 100% adorable, 100% cute, and just a tiny bit adorably goofy 🤭💖 Sometimes the silly little brain takes a snack break!`,
-  `Scientific verdict: cuteness off the charts! ${CONFIG.name} is a teeny-tiny bit goofy, especially when thinking about cake 🍰✨`,
-  ` 💕`
-];
-let lastScan=-1;
-$("scanCute").onclick=()=>{
-  const button=$("scanCute"),device=$("meterDevice"),progress=$("meterProgress");
-  if(button.disabled)return;
-  button.disabled=true;
-  button.textContent="🔍 Scanning...";
-  device.classList.add("scanning");
-  $("meterState").textContent="SCANNING... ✨";
-  $("meterMessage").textContent="Measuring adorable levels... please hold your smile!";
-  $("meterResult").textContent="";
-  progress.setAttribute("aria-valuenow","0");
-  progress.querySelector("i").style.width="0";
-  ["adorable","cute","goofy"].forEach(name=>{
-    $(name+"Bar").style.width="0";
-    $(name+"Value").textContent="—";
-  });
-  requestAnimationFrame(()=>{
-    progress.setAttribute("aria-valuenow","100");
-    progress.querySelector("i").style.width="100%";
-  });
-  setTimeout(()=>{
-    let resultIndex=Math.floor(Math.random()*scanResults.length);
-    if(resultIndex===lastScan)resultIndex=(resultIndex+1)%scanResults.length;
-    lastScan=resultIndex;
-    const goofy=Math.floor(rnd(8,16));
-    $("adorableBar").style.width="100%";$("adorableValue").textContent="100%";
-    $("cuteBar").style.width="100%";$("cuteValue").textContent="100%";
-    $("goofyBar").style.width=goofy+"%";$("goofyValue").textContent=goofy+"%";
-    $("meterState").textContent="SCAN COMPLETE! ✅";
-    $("meterMessage").textContent="Diagnosis: dangerously high levels of birthday sweetness!";
-    $("meterResult").textContent=scanResults[resultIndex];
-    device.classList.remove("scanning");
-    button.disabled=false;
-    button.textContent="🔄 Scan again!";
-    sfx("ding");confetti(35);vib([20,30,20]);
-    const box=$("meterResult").getBoundingClientRect();
-    sparkBurst(box.left+box.width/2,box.top+box.height/2);
-  },1550);
 };
 const cd=$("candles");
 const digits=String(CONFIG.age).split("");
